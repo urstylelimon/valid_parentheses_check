@@ -1,288 +1,41 @@
-s = "()"
-length = len(s)
-i = 1
-first_index = s[0]
+s = "{(})"
+list = []
 flag = False
 
-while i < length:
-    if (first_index == "(") :
-        if (")" == s[i]):
+opening_bracket = ['(','{','[']
+closing_brackets = [')','}',']']
+map = {
+    ')' : '(',
+    '}' : '{',
+    ']' : '['
+}
+
+for i in s:
+    if i in opening_bracket:
+        list.append(i)
+
+    if i in closing_brackets:
+        if map[i] not in list:
+            flag = False
+            break
+
+        if len(list) == 0:
+            flag = False
+            break
+        if len(list) != 0 and list[-1] == map[i]:
             flag = True
+            list.pop()
 
-            if( (i - 0) > 1 ):
 
-                for z in range(2,i+1):
-                    if (s[1] == "("):
-                        if (")" == s[z]):
-                            flag = True
 
-                            if( (z - 0) > 1 ):
 
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
+if len(list) > 0 :
+    flag = False
 
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
+if flag :
+    print("True")
 
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
+else:
+    print("False")
 
 
-                        else:
-                            flag = False
-
-
-                for z in range(2,i+1):
-                    if (s[1] == "{"):
-                        if ("}" == s[z]):
-                            flag = True
-                            if( (z - 0) > 1 ):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-
-
-                for z in range(2,i+1):
-                    if (s[1] == "["):
-                        if ("]" == s[z]):
-                            flag = True
-
-                            if( (z - 0) > 1 ):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-    if (first_index == "{"):
-        if ("}" == s[i]):
-            flag = True
-            if ((i - 0) > 1):
-
-                for z in range(2, i + 1):
-                    if (s[1] == "("):
-                        if (")" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-                for z in range(2, i + 1):
-                    if (s[1] == "{"):
-                        if ("}" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-                for z in range(2, i + 1):
-                    if (s[1] == "["):
-                        if ("]" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-    if (first_index == "["):
-        if ("]" == s[i]):
-            flag = True
-
-            if ((i - 0) > 1):
-
-                for z in range(2, i + 1):
-                    if (s[1] == "("):
-                        if (")" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-                for z in range(2, i + 1):
-                    if (s[1] == "{"):
-                        if ("}" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-                for z in range(2, i + 1):
-                    if (s[1] == "["):
-                        if ("]" == s[z]):
-                            flag = True
-
-                            if ((z - 0) > 1):
-
-                                for x in range(3, z + 1):
-                                    if (s[2] == "("):
-                                        if (")" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "{"):
-                                        if ("}" == s[x]):
-                                            flag = True
-                                            break
-
-                                    if (s[2] == "["):
-                                        if ("]" == s[x]):
-                                            flag = True
-                                            break
-                                break
-
-
-                        else:
-                            flag = False
-
-
-
-
-    i += 1
-
-if( flag == True ):
-    print("Valid")
-
-if(flag == False):
-    print("unvalid")
